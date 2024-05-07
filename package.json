@@ -1,0 +1,21 @@
+{
+  "name": "qrcode",
+  "version": "1.0.0",
+  "description": "A simple nodeJs express app that can return QRCodes containing texts urls and images",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js",
+    "start": "./bin/app"
+  },
+  "author": "El Joshua",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "pino": "^9.0.0",
+    "pino-http": "^10.1.0",
+    "pino-pretty": "^11.0.0"
+  }
+}
