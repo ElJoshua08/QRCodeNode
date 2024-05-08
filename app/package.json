@@ -7,5 +7,10 @@
     "test": "node index.js"
   },
   "author": "El Joshua",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "qrcode": "^1.5.3"
+  }
 }
