@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node index.js"
   },
+  "repository": {
+    "@eljoshua": "https://github.com/ElJoshua08/QRCodeNode.git"
+  },
   "author": "El Joshua",
   "license": "ISC",
   "dependencies": {
