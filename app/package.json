@@ -18,5 +18,10 @@
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
     "qrcode": "^1.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
   }
 }

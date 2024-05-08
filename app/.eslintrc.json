@@ -1,0 +1,8 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    // Agregar reglas personalizadas aquí
+    "indent": ["error", 2], // Usar una indentación de 2 espacios
+    "linebreak-style": "off"
+  }
+}
