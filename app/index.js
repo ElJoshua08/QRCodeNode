@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 
 // Home route
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.send('So now this should work');
 });
 
 // Start the server
