@@ -1,4 +1,5 @@
 const express = require('express');
+const ejs = require('ejs');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -7,7 +8,7 @@ app.set('view engine', 'ejs');
 
 // Home route
 app.get('/', (req, res) => {
-  res.render('home', { message: 'Hello, World!' });
+  res.send("hello");
 });
 
 // Start the server
