@@ -4,7 +4,8 @@
   "description": "A simple qrcode generator that can make qrs for texts urls and images",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "vercel-build": "echo hello"
   },
   "repository": {
     "@eljoshua": "https://github.com/ElJoshua08/QRCodeNode.git"
