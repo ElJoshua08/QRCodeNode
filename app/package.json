@@ -1,0 +1,11 @@
+{
+  "name": "qrcode",
+  "version": "1.0.0",
+  "description": "A simple qrcode generator that can make qrs for texts urls and images",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "El Joshua",
+  "license": "ISC"
+}
