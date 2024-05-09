@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const qrcode = require('qrcode');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,30 +10,29 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 // Home route
 app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/qr/:data', (req, res) => {
-  let data = req.params.data;
-  console.log(data);
+app.post('/qr', (req, res) => {
+  let data = req.body.content;
 
   qrcode.toDataURL(data, (err, url) => {
     if (err) {
-      res.join({
-        message: 'Error occured',
+      res.json({
+        message: err,
         status: 'ERROR',
-      })
-    };
+      });
+    }
     res.json({
-      message: url,
+      content: url,
       status: 'OK',
     });
   });
-
 });
 
 // Start the server

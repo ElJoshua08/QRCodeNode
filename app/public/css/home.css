@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-  --background: blue;
-  --color-primary: #000;
-  --color-secondary: #fff;
+  --background-start: #000428;
+  --background-end: #004e92;
+  --color-primary: #EA1573;
+  --color-primary-darker: #ada421;
+  --color-secondary: #FFFAFA;
+  --color-secondary-darker: #eba7e7;
   --text-primary: #fff;
-  --text-secondary: #ccc
+  --text-secondary: #1f1f1f;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
 }
 
 html {
@@ -19,11 +23,69 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--background-start);
+  background-image: linear-gradient(to top,
+      var(--background-start) 0%,
+      var(--background-end) 74%);
+
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+main {
   width: 100vw;
   height: 100vh;
   max-width: 1100px;
-  display: grid;
-  place-items: center;
-  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.title {
+  position: absolute;
+  top: 2rem;
+  font-size: 4rem;
+  letter-spacing: 2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 300px;
+  height: 320px;
+  gap: 2rem;
+  background-color: var(--color-secondary);
+  box-shadow: 12px 12px 15px var(--color-secondary-darker);
+  padding: 1rem;
+  border-radius: 1.2rem;
+}
+
+main section input {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  font-size: 2.3rem;
+  background-color: var(--color-primary-darker);
+  outline: 0;
+  border: 2px solid var(--color-primary-darker);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+}
+
+main section input::placeholder {
+  font-size: 2rem;
+  color: var(--text-secondary);
+}
+
+main section button {
+  width: 90%;
+  height
 }
