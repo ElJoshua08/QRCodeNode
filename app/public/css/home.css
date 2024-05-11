@@ -16,6 +16,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
+  user-select: none;
 }
 
 html {
@@ -175,16 +176,61 @@ main section.qr-container .qrs {
 
   bottom: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+main section.qr-container .slide-buttons {
+  height: 70%;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  opacity: 0;
+  z-index: 9999;
+
+  transition: all 0.3s ease;
+
+  &.active {
+    opacity: 1;
+
+    & ion-icon {
+      cursor: pointer;
+    }
+  }
+
+  & ion-icon {
+    font-size: 3.6rem;
+    color: var(--color-secondary-darker);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+main section.qr-container .slide-buttons ion-icon {
+  font-size: 3.6rem;
+  color: var(--color-secondary-darker);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
 }
 
 main section.qr-container .qr {
-  flex-shrink: 0;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 main section.qr-container .qr .image-container {
@@ -193,13 +239,18 @@ main section.qr-container .qr .image-container {
   display: flex;
   align-items: flex-start;
   padding-left: 2rem;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
 }
 
 main section.qr-container .qr .image-container img {
   height: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 1.5rem;
+
+  &:hover {
+    /* ! Quien sabe xq esto no va */
+    cursor: url('../images/expand-dark.png'),  url('../images/expand-dark.svg'), pointer;
+  }
 }
 
 main section.qr-container .qr .data {
@@ -216,7 +267,7 @@ main section.qr-container .qr .data p {
   color: var(--text-primary);
   margin-left: 2rem;
   max-width: 8ch;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 main section.qr-container .qr .data .options {
@@ -227,10 +278,11 @@ main section.qr-container .qr .data .options {
 }
 
 main section.qr-container .qr .data .options ion-icon {
+  z-index: 999;
   font-size: 2.3rem;
   color: var(--text-secondary);
   cursor: pointer;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   transition: all 0.3s ease;
   padding: 0.6rem;
   background-color: var(--color-secondary-darker);

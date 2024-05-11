@@ -21,18 +21,28 @@ app.get('/', (req, res) => {
 app.post('/qr', (req, res) => {
   let data = req.body.content;
 
-  qrcode.toDataURL(data, { width: 512 }, (err, url) => {
-    if (err) {
+  qrcode.toDataURL(
+    data,
+    {
+      width: 1024,
+      color: {
+        dark: '#fff',
+        light: '#000',
+      },
+    },
+    (err, url) => {
+      if (err) {
+        res.json({
+          message: err,
+          status: 'ERROR',
+        });
+      }
       res.json({
-        message: err,
-        status: 'ERROR',
+        content: url,
+        status: 'OK',
       });
     }
-    res.json({
-      content: url,
-      status: 'OK',
-    });
-  });
+  );
 });
 
 // Start the server
