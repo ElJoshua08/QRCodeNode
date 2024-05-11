@@ -1,4 +1,5 @@
 const $createQRButton = document.getElementById('createQrButton');
+const $qrTextInput = document.getElementById('textInput');
 
 $createQRButton.addEventListener('click', async () => {
   const $textInput = document.getElementById('textInput');
@@ -23,18 +24,33 @@ $createQRButton.addEventListener('click', async () => {
   const receivedData = await res.json();
 
   if (receivedData.status === 'OK') {
-    const qrCode = new Image();
-    qrCode.src = receivedData.content;
-    qrCode.classList.add('qr');
-
+    const $qr = document.createElement('div');
     const $qrContainer = document.querySelector('.qr-container');
-    $qrContainer.appendChild(qrCode);
-    const $qrs = $qrContainer.querySelectorAll('.qr');
+    const $data = document.createElement('div');
+    const $options = document.createElement('div');
+    $data.classList.add('data');
+    $options.classList.add('options');
+    const $qrImage = new Image();
+    const $qrTitle = document.createElement('p');
+    $qrTitle.textContent = $textInput.value;
+    $qrImage.src = receivedData.content;
 
+    const $copyIcon = document.createElement('ion-icon');
+    const $downloadIcon = document.createElement('ion-icon');
+    $copyIcon.setAttribute('name', 'copy-outline');
+    $downloadIcon.setAttribute('name', 'download-outline');
 
-    if ($qrs.length > 0) {
-      $qrContainer.classList.add('active');
-    }
+    $options.appendChild($copyIcon);
+    $options.appendChild($downloadIcon);
+
+    $data.appendChild($qrTitle);
+    $data.appendChild($options);
+    $qr.classList.add('qr');
+    $qr.appendChild($qrImage);
+    $qr.appendChild($data);
+
+    $qrContainer.appendChild($qr);
   } else {
+    alert('Something Went wrong');
   }
 });

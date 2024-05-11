@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-  --background-start: #000428;
-  --background-end: #004e92;
-  --color-primary: #EA1573;
-  --color-primary-darker: #ada421;
-  --color-secondary: #FFFAFA;
-  --color-secondary-darker: #eba7e7;
-  --text-primary: #fff;
-  --text-secondary: #1f1f1f;
+  --background-start: #f5f5f5;
+  --background-end: #bbdefb;
+  --color-primary: #236ec5;
+  --color-primary-darker: #1558a5;
+  --color-secondary: #aec9d7;
+  --color-secondary-darker: #78909c;
+  --text-primary: #646262;
+  --text-secondary: #dbd8d8;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 html {
@@ -24,9 +24,11 @@ html {
 
 body {
   background-color: var(--background-start);
-  background-image: linear-gradient(to top,
-      var(--background-start) 0%,
-      var(--background-end) 74%);
+  background-image: linear-gradient(
+    to top,
+    var(--background-start) 0%,
+    var(--background-end) 74%
+  );
 
   width: 100vw;
   height: 100vh;
@@ -46,8 +48,8 @@ main {
 
 .title {
   position: absolute;
-  top: 2rem;
-  font-size: 4rem;
+  top: 0rem;
+  font-size: 4.3rem;
   letter-spacing: 2rem;
   font-weight: 900;
   color: var(--text-primary);
@@ -55,6 +57,7 @@ main {
 
 main section {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -67,16 +70,32 @@ main section {
   border-radius: 1.2rem;
 }
 
+main section h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  position: absolute;
+  top: 1rem;
+}
+
 main section input {
   position: relative;
   width: 100%;
   padding: 1rem;
   font-size: 2.3rem;
-  background-color: var(--color-primary-darker);
+  background-color: var(--color-secondary-darker);
   outline: 0;
-  border: 2px solid var(--color-primary-darker);
+  border: 2px solid var(--color-secondary-darker);
   border-radius: 0.5rem;
   color: var(--text-primary);
+  transition: all 0.3s ease;
+  font-weight: 700;
+}
+
+main section input:focus,
+main section input:hover {
+  border-color: var(--color-primary);
+  transition: all 0.3s ease;
 }
 
 main section input::placeholder {
@@ -84,27 +103,71 @@ main section input::placeholder {
   color: var(--text-secondary);
 }
 
-main section button {
-  width: 90%;
+main section.qr-generator button {
+  width: calc(100% - 2rem);
+  height: 55px;
+  position: absolute;
+  bottom: 1rem;
+  border-radius: 1rem;
+  outline: 0;
+  background-color: var(--color-secondary-darker);
+  border: 2px solid var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: left;
+  padding-inline-start: 1.5rem;
+  cursor: pointer;
+  /* overflow: hidden; */
+  transition: all 150ms ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: var(--color-primary);
+    z-index: 0;
+    transition: transform 450ms ease-out;
+    border-radius: 0.5rem;
+  }
+
+  &:hover {
+    color: var(--color-secondary-darker);
+    &::before {
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: transform 450ms ease-out;
+    }
+  }
 }
 
-main section.qr-container {
-  display: none;
-  width: 300px;
-  height: 300px;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  grid-template-rows: repeat(auto-fit, 1fr);
-}
-
-main section.qr-container.active {
-  display: grid;
-}
-
-main section.qr-container .qr {
+main section.qr-generator p {
   display: block;
+  z-index: 99;
+  position: absolute;
   width: 100%;
   height: 100%;
-  flex-grow: 1;
-  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-start: #1f1f20;
+    --background-end: #141318;
+    --color-primary: #a6ffae;
+    --color-primary-darker: #81d388;
+    --color-secondary: #33323a;
+    --color-secondary-darker: #222127;
+    --text-primary: #eee;
+    --text-secondary: #5f5d6b;
+  }
 }

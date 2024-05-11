@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 app.post('/qr', (req, res) => {
   let data = req.body.content;
 
-  qrcode.toDataURL(data, (err, url) => {
+  qrcode.toDataURL(data, { width: 512 }, (err, url) => {
     if (err) {
       res.json({
         message: err,
