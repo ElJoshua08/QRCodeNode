@@ -25,12 +25,15 @@ $createQRButton.addEventListener('click', async () => {
 
   if (receivedData.status === 'OK') {
     const $qr = document.createElement('div');
-    const $qrContainer = document.querySelector('.qr-container');
+    const $qrContainer = document.querySelector('.qr-container .qrs');
     const $data = document.createElement('div');
     const $options = document.createElement('div');
     $data.classList.add('data');
     $options.classList.add('options');
     const $qrImage = new Image();
+    const $imageContainer = document.createElement("div")
+    $imageContainer.classList.add("image-container")
+    $imageContainer.appendChild($qrImage)
     const $qrTitle = document.createElement('p');
     $qrTitle.textContent = $textInput.value;
     $qrImage.src = receivedData.content;
@@ -46,7 +49,7 @@ $createQRButton.addEventListener('click', async () => {
     $data.appendChild($qrTitle);
     $data.appendChild($options);
     $qr.classList.add('qr');
-    $qr.appendChild($qrImage);
+    $qr.appendChild($imageContainer);
     $qr.appendChild($data);
 
     $qrContainer.appendChild($qr);

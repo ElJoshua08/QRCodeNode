@@ -159,6 +159,87 @@ main section.qr-generator p {
   left: 0;
 }
 
+main section.qr-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: 0;
+}
+
+main section.qr-container .qrs {
+  position: absolute;
+  height: calc(100% - 5rem);
+  width: 100%;
+
+  bottom: 0;
+  overflow: hidden;
+}
+
+main section.qr-container .qr {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+main section.qr-container .qr .image-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 2rem;
+  margin-bottom: .6rem;
+}
+
+main section.qr-container .qr .image-container img {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 1.5rem;
+}
+
+main section.qr-container .qr .data {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+main section.qr-container .qr .data p {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-left: 2rem;
+  max-width: 8ch;
+  overflow:hidden;
+}
+
+main section.qr-container .qr .data .options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 35%;
+}
+
+main section.qr-container .qr .data .options ion-icon {
+  font-size: 2.3rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: .6rem;
+  transition: all 0.3s ease;
+  padding: 0.6rem;
+  background-color: var(--color-secondary-darker);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-start: #1f1f20;
