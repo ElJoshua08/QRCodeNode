@@ -39,9 +39,8 @@ main {
   height: 100vh;
   max-width: 1100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 2rem;
 }
 
@@ -87,4 +86,25 @@ main section input::placeholder {
 
 main section button {
   width: 90%;
+}
+
+main section.qr-container {
+  display: none;
+  width: 300px;
+  height: 300px;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+main section.qr-container.active {
+  display: grid;
+}
+
+main section.qr-container .qr {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  border-radius: 1rem;
 }
