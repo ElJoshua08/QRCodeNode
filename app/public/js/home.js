@@ -43,6 +43,7 @@ $createQRButton.addEventListener('click', async () => {
     $imageContainer.classList.add('image-container');
     $imageContainer.appendChild($qrImage);
     const $qrTitle = document.createElement('p');
+    $qrTitle.classList.add('qr-title');
     $qrTitle.textContent = $textInput.value;
     $qrImage.src = receivedData.content;
 
@@ -60,6 +61,10 @@ $createQRButton.addEventListener('click', async () => {
       $a.href = receivedData.content;
       $a.download = $textInput.value;
       $a.click();
+    });
+
+    $qrImage.addEventListener('click', () => {
+      expandQR($qr);
     });
 
     $options.appendChild($copyIcon);
@@ -119,10 +124,26 @@ function copyToClipboard(imgElement) {
             'image/png': blob,
           }),
         ])
-        .then(function () {
-        })
-        .catch(function (err) {
-        });
+        .then(function () {})
+        .catch(function (err) {});
     })
     .catch((error) => console.error('Error fetching image:', error));
+}
+
+window.addEventListener('load', () => {
+  const $qrExpanded = document.querySelector('.qr-expanded');
+  const $qrExpandedClose = $qrExpanded.querySelector('.qr-expanded-close');
+  $qrExpandedClose.addEventListener('click', () => {
+    $qrExpanded.classList.remove('active');
+  });
+});
+
+function expandQR(qr) {
+  const $qrExpanded = document.querySelector('.qr-expanded');
+  const $qrExpandedImage = $qrExpanded.querySelector('.qr-expandex-image');
+  const $qrExpandedTitle = $qrExpanded.querySelector('.qr-expanded-title');
+
+  $qrExpanded.classList.add('active');
+  $qrExpandedImage.src = qr.querySelector('img').src;
+  $qrExpandedTitle.innerHTML = qr.querySelector('.qr-title').innerHTML;
 }

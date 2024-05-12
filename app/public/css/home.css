@@ -291,6 +291,50 @@ main section.qr-container .qr .data .options ion-icon {
   }
 }
 
+main .qr-expanded {
+  width: calc(100% - 10rem);
+  height: calc(100% - 10rem);
+
+  background-color: var(--color-secondary);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  scale: 0;
+  z-index: -1;
+  transition: all 500ms ease;
+
+  &.active {
+    scale: 1;
+    z-index: 9999;
+  transition: all 500ms ease;
+
+  }
+}
+
+main .qr-expanded .qr-expanded-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 3rem;
+  color: var(--color-secondary-darker);
+  cursor: pointer;
+
+  transition: all 250ms ease;
+
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-start: #1f1f20;
