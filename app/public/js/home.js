@@ -140,8 +140,9 @@ window.addEventListener('load', () => {
 
 function expandQR(qr) {
   const $qrExpanded = document.querySelector('.qr-expanded');
-  const $qrExpandedImage = $qrExpanded.querySelector('.qr-expandex-image');
+  const $qrExpandedImage = $qrExpanded.querySelector('.qr-expanded-image');
   const $qrExpandedTitle = $qrExpanded.querySelector('.qr-expanded-title');
+  console.log(qr, $qrExpandedImage);
 
   $qrExpanded.classList.add('active');
   $qrExpandedImage.src = qr.querySelector('img').src;
