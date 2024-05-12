@@ -5,3 +5,4 @@ Next Additions:
   - Possibility to make qrcode bigger on click to show more information
   - possibility to choose light and dark part of the qr colors
   - saving all qr data in localStorage
+  - Add modals (like for example when the qr its copied)
