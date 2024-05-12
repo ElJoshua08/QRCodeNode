@@ -248,7 +248,6 @@ main section.qr-container .qr .image-container img {
   border-radius: 1.5rem;
 
   &:hover {
-    /* ! Quien sabe xq esto no va */
     cursor: url('../images/expand-dark.png') 10 10, pointer;
   }
 }
@@ -302,5 +301,11 @@ main section.qr-container .qr .data .options ion-icon {
     --color-secondary-darker: #222127;
     --text-primary: #eee;
     --text-secondary: #5f5d6b;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  main{
+    flex-direction: column;
   }
 }

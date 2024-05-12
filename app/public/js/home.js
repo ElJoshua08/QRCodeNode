@@ -120,10 +120,8 @@ function copyToClipboard(imgElement) {
           }),
         ])
         .then(function () {
-          console.log('Image copied to clipboard successfully.');
         })
         .catch(function (err) {
-          console.error('Failed to copy image to clipboard:', err);
         });
     })
     .catch((error) => console.error('Error fetching image:', error));
