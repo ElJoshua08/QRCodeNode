@@ -3,6 +3,12 @@ const $qrTextInput = document.getElementById('textInput');
 const $qrSlider = document.querySelector('.slide-buttons');
 const $qrSlideButtons = $qrSlider.querySelectorAll('ion-icon');
 
+$qrTextInput.addEventListener('keydown', (e) => {
+  if (e.code == 'Enter' && $qrTextInput.value != null) {
+    $createQRButton.click();
+  }
+});
+
 $createQRButton.addEventListener('click', async () => {
   const $textInput = document.getElementById('textInput');
 
@@ -46,7 +52,7 @@ $createQRButton.addEventListener('click', async () => {
     $downloadIcon.setAttribute('name', 'download-outline');
 
     $copyIcon.addEventListener('click', () => {
-      copyToClipboard($qrImage)
+      copyToClipboard($qrImage);
     });
 
     $downloadIcon.addEventListener('click', () => {
@@ -66,6 +72,8 @@ $createQRButton.addEventListener('click', async () => {
     $qr.appendChild($data);
 
     $qrContainer.appendChild($qr);
+
+    $qrTextInput.value = '';
 
     const $qrs = $qrContainer.querySelectorAll('.qr');
     if ($qrs.length > 1) {
@@ -120,4 +128,3 @@ function copyToClipboard(imgElement) {
     })
     .catch((error) => console.error('Error fetching image:', error));
 }
-

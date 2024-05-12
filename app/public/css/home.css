@@ -249,7 +249,7 @@ main section.qr-container .qr .image-container img {
 
   &:hover {
     /* ! Quien sabe xq esto no va */
-    cursor: url('../images/expand-dark.png'),  url('../images/expand-dark.svg'), pointer;
+    cursor: url('../images/expand-dark.png') 10 10, pointer;
   }
 }
 
