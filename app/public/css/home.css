@@ -333,6 +333,13 @@ main .qr-expanded .qr-expanded-close {
   }
 }
 
+main .qr-expanded .data {
+  flex-grow: 1;
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+}
+
 main .qr-expanded .qr-expanded-image-container {
   height: 90%;
   width: auto;
@@ -347,6 +354,29 @@ main .qr-expanded .qr-expanded-image-container {
     border-radius: 1rem;
   }
 }
+
+main .qr-expanded .qr-expanded-buttons {
+  justify-self: flex-start;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  & ion-icon {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    cursor: pointer;
+    background-color: var(--color-secondary-darker);
+    transition: all 250ms ease;
+    padding: 0.7rem;
+    border-radius: 0.8rem;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+ }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
